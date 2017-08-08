@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0343D4511F39D1CE00F2C689 /* FBullCowGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0343D44F1F39D1CE00F2C689 /* FBullCowGame.cpp */; };
 		0355AE0A1F3726F900D2FBEE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0355AE091F3726F900D2FBEE /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0343D44F1F39D1CE00F2C689 /* FBullCowGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FBullCowGame.cpp; sourceTree = "<group>"; };
+		0343D4501F39D1CE00F2C689 /* FBullCowGame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FBullCowGame.hpp; sourceTree = "<group>"; };
 		0355AE061F3726F900D2FBEE /* BullCowGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BullCowGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		0355AE091F3726F900D2FBEE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				0355AE091F3726F900D2FBEE /* main.cpp */,
+				0343D44F1F39D1CE00F2C689 /* FBullCowGame.cpp */,
+				0343D4501F39D1CE00F2C689 /* FBullCowGame.hpp */,
 			);
 			path = BullCowGame;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0355AE0A1F3726F900D2FBEE /* main.cpp in Sources */,
+				0343D4511F39D1CE00F2C689 /* FBullCowGame.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +254,7 @@
 				0355AE0F1F3726F900D2FBEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
