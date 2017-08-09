@@ -18,8 +18,8 @@ using int32 = int;
 FBullCowGame BCGame; //initilizes game instance 
 
 // constants
-constexpr int32 WORD_LENGTH = 2;
-constexpr int32 MAX_GUESSES = 2;
+constexpr int32 WORD_LENGTH = 6;
+constexpr int32 MAX_GUESSES = 3;
 
 //functions start here
 void GameIntro ()
@@ -29,24 +29,24 @@ void GameIntro ()
     getline(std::cin, name);
     std::cout << "Hello " + name + ", welcome to Bulls and Cows!\n" << std::endl;
     std::cout << "The length of the isogram is " << WORD_LENGTH << " letters long." << std::endl;
+    std::cout << "You have " << MAX_GUESSES << " tries." << std::endl;
 }
 
 bool IsGuessValid (FText guess)
 {
     if (guess.length() != WORD_LENGTH)
     {
-        std::cout << "Your guess is the wrong word length" << std::endl;
+        std::cout << "INVALID: Your guess is not " << WORD_LENGTH << " letters long." << std::endl;
         return false;
     }
     for (int32 i = 0; i < guess.length(); i++)
     {
         if (!isalpha(guess[i]))
         {
-            std::cout << "Your guess can only contain letters" << std::endl;
+            std::cout << "INVALID: Your guess can only contain letters" << std::endl;
             return false;
         }
     }
-    std::cout << "Valid Guess!" << std::endl;
     return true;
 }
 
@@ -65,11 +65,24 @@ void PlayGame ()
     for (int32 i = 1; i <= MAX_GUESSES; i++)
     {
         FText guess = "";
+        
         do
         {
             std::cout << "(" << i << ") ";
             guess = GetGuess();
         } while (!IsGuessValid(guess));
+        
+        FBullCowCount BullCowCount = BCGame.SubmitGuess(guess);
+        if (BullCowCount.bulls == WORD_LENGTH)
+        {
+            std::cout << "Great Job, You Won!" << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "Bulls = " << BullCowCount.bulls << std::endl;
+            std::cout << "Cows = " << BullCowCount.cows << std::endl;
+        }
     }
 }
 
@@ -82,10 +95,11 @@ bool AskToPlayAgain ()
 }
 
 //MAIN ------------------
-int main(void) {
+int main(void)
+{
+    GameIntro();
     do
     {
-        GameIntro();
         PlayGame();
     } while (AskToPlayAgain());
     
